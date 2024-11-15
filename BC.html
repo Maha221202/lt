@@ -10,39 +10,49 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             background-color: #f3f3f3;
         }
+
+        /* Barre de navigation */
         header {
-            background-color: #ffffff; /* Bordure blanche */
-            color: #228B22; /* Vert royal pour l'écriture */
-            padding: 30px; /* Augmentation de la hauteur */
-            text-align: left;
-            width: 100%;
+            background-color: #333; /* Noir pour la barre de navigation */
+            color: white;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
-            border-bottom: 2px solid #228B22; /* Ligne verte */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
         }
-        header img {
-            height: 100px; /* Taille du logo agrandie */
-            margin-right: 20px;
+
+        header .logo {
+            display: flex;
+            align-items: center;
         }
+
+        header .logo img {
+            height: 100px; /* Taille du logo */
+            margin-right: 15px;
+        }
+
         header h1 {
-            font-size: 2.2em; /* Texte plus grand */
+            font-size: 24px;
             margin: 0;
+            color: #4CAF50; /* Vert pour le texte du titre */
         }
+
         header p {
-            font-size: 1.4em; /* Accroche plus grande */
+            font-size: 14px;
             margin: 0;
+            color: #A0522D; /* Marron pour l'accroche */
         }
+
+        /* Conteneur */
         .container {
             width: 90%;
             max-width: 800px;
             margin: 20px auto;
         }
+
+        /* Sections */
         .section {
             background-color: white;
             padding: 20px;
@@ -50,96 +60,97 @@
             border-radius: 8px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .section h2 {
-            color: #228B22; /* Vert royal pour les titres */
+            color: #4CAF50; /* Vert pour les titres */
         }
+
         button {
-            background-color: #228B22; /* Boutons verts royaux */
+            background-color: #A0522D; /* Marron pour les boutons */
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 1em;
         }
+
         button:hover {
-            background-color: #1e7a1e; /* Vert plus foncé au survol */
+            background-color: #8B4513; /* Marron plus foncé */
         }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+
         form label {
-            margin: 10px 0 5px;
-            font-weight: bold;
-            color: #228B22;
+            display: block;
+            margin-top: 10px;
+            color: #333;
         }
-        form input, form textarea, form button {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
+
         form button {
-            background-color: #228B22;
-            color: white;
+            margin-top: 10px;
+            background-color: #4CAF50;
             border: none;
-        }
-        form button:hover {
-            background-color: #1e7a1e;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="C:\Users\saafi\Downloads\WhatsApp Image 2024-11-12 at 16.59.34.jpeg" alt="Logo BeinzoCare"> <!-- Remplacez par le chemin de votre logo -->
-        <div>
-            <h1>BeinzoCare</h1>
-            <p>Trouvez le service parfait pour votre animal, en quelques clics seulement !</p>
+        <div class="logo">
+            <img src="ton-logo.png" alt="Logo de BeinzoCare">
+            <div>
+                <h1>BeinzoCare</h1>
+                <p>Trouvez le service parfait pour votre animal, en quelques clics seulement !</p>
+            </div>
         </div>
     </header>
 
     <div class="container">
         <!-- Section pour la garde d'animaux -->
         <div class="section" id="pet-hotel">
-            <h2>Garde d'Animaux en Hôtel</h2>
-            <p>Recherchez des hôtels partenaires pour garder vos animaux en toute sécurité pendant votre absence.</p>
-            <button onclick="findHotels()">Rechercher des Hôtels</button>
+            <h2>Garde d'Animaux</h2>
+            <p>Réservez facilement un gardien de confiance pour votre animal lorsque vous êtes en déplacement.</p>
+            <button onclick="findHotels()">Réserver un Gardien</button>
         </div>
 
         <!-- Section pour la localisation des vétérinaires -->
         <div class="section" id="emergency-vet">
-            <h2>Vétérinaires en Cas d'Urgence</h2>
-            <p>Localisez rapidement les vétérinaires ouverts en urgence autour de vous.</p>
-            <button onclick="findVets()">Trouver des Vétérinaires</button>
+            <h2>Localisation de Vétérinaires</h2>
+            <p>Trouvez rapidement un vétérinaire en cas d'urgence, où que vous soyez.</p>
+            <button onclick="findVets()">Trouver un Vétérinaire</button>
         </div>
 
         <!-- Section pour les rappels de rendez-vous vétérinaires -->
         <div class="section" id="vet-reminders">
-            <h2>Rappels de Rendez-vous</h2>
-            <p>Recevez des rappels pour les rendez-vous vétérinaires de votre animal.</p>
+            <h2>Rappels de Soins</h2>
+            <p>Ne manquez plus jamais un rendez-vous grâce aux rappels automatiques de soins vétérinaires.</p>
             <button onclick="setReminder()">Configurer un Rappel</button>
         </div>
 
-        <!-- Section pour la messagerie -->
-        <div class="section" id="messaging">
+        <!-- Section pour la messagerie en ligne -->
+        <div class="section" id="online-messaging">
+            <h2>Messagerie en Ligne</h2>
             <p>Discutez directement avec des gardiens et des vétérinaires pour obtenir des conseils et des mises à jour.</p>
             <button onclick="startChat()">Démarrer une Discussion</button>
         </div>
-        
-        <!-- Section pour le formulaire de contact -->
-        <div class="section" id="contact-form">
+
+        <!-- Section Contact -->
+        <div class="section" id="contact">
             <h2>Contactez-nous</h2>
             <form>
                 <label for="name">Nom :</label>
-                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                <input type="text" id="name" name="name" required>
 
                 <label for="email">Email :</label>
-                <input type="email" id="email" name="email" placeholder="Votre email" required>
+                <input type="email" id="email" name="email" required>
 
                 <label for="message">Message :</label>
-                <textarea id="message" name="message" rows="4" placeholder="Votre message ici..." required></textarea>
+                <textarea id="message" name="message" rows="4" required></textarea>
 
                 <button type="submit">Envoyer</button>
             </form>
@@ -148,11 +159,11 @@
 
     <script>
         function findHotels() {
-            alert("Recherche des hôtels pour animaux en cours...");
+            alert("Recherche des gardiens pour animaux en cours...");
         }
 
         function findVets() {
-            alert("Recherche des vétérinaires ouverts en urgence en cours...");
+            alert("Recherche des vétérinaires disponibles en urgence en cours...");
         }
 
         function setReminder() {
@@ -160,6 +171,10 @@
             if (reminderDate) {
                 alert("Rappel configuré pour le " + reminderDate + " !");
             }
+        }
+
+        function startChat() {
+            alert("Ouverture de la messagerie en ligne...");
         }
     </script>
 </body>
