@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pepper & Glow — Enquête (anonyme)</title>
+  <style>
+    :root{--bg:#f7f7f5;--card:#ffffff;--accent:#c94b37;--muted:#6b6b6b;--green:#2d7a3e}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#fbfbfa, #f0f6f2); color:#222}
+    .container{max-width:980px;margin:40px auto;padding:20px}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:center}
+    @media (max-width:880px){.hero{grid-template-columns:1fr;}.hero-right{order:-1}}
+    .card{background:var(--card);border-radius:14px;padding:28px;box-shadow:0 6px 30px rgba(16,24,40,0.06)}
+    h1{margin:0 0 10px;font-size:28px;color:var(--accent)}
+    p.lead{margin:0 0 16px;color:var(--muted);line-height:1.5}
+    .meta{font-size:14px;color:var(--muted);margin-top:8px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(45,122,62,0.08);color:var(--green);font-weight:600;margin-top:8px}
+
+    .hero-right img{width:100%;border-radius:10px;display:block}
+
+    form{margin-top:18px}
+    .field{margin-bottom:12px}
+    label{display:block;font-weight:600;margin-bottom:6px}
+    input[type="text"],textarea,select{width:100%;padding:10px;border:1px solid #e6e6e6;border-radius:8px;font-size:14px}
+    textarea{min-height:90px;resize:vertical}
+    .row{display:flex;gap:12px}
+    .row .field{flex:1}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;background:var(--accent);color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer}
+    .secondary{background:transparent;border:1px solid #ddd;padding:10px 14px;border-radius:10px;cursor:pointer}
+    .foot{font-size:13px;color:var(--muted);margin-top:12px}
+
+    footer{text-align:center;margin-top:28px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="card">
+        <h1>Pepper & Glow — Enquête rapide 🌿</h1>
+        <p class="lead">Nous sommes une équipe d’étudiantes originaires de <strong>Nabeul</strong>, passionnées par la beauté naturelle et le savoir‑faire tunisien. Notre projet <strong>Pepper & Glow</strong> valorise le piment du Cap Bon dans des produits cosmétiques 100&nbsp;% naturels et tunisiens pour les cheveux et les lèvres.</p>
+        <div class="meta">Vos réponses, anonymes et confidentielles, nous aideront à créer des soins authentiques, efficaces et éco‑responsables. <span class="badge">100% tunisien</span></div>
+
+        <form id="survey" onsubmit="return handleSubmit(event)" autocomplete="off" novalidate>
+          <!-- Note: pas de champs d'identité pour garantir l'anonymat -->
+          <div class="field">
+            <label>Quel(s) produit(s) vous intéressent le plus ?</label>
+            <select id="interet">
+              <option value="cheveux">Soin pour cheveux</option>
+              <option value="levres">Soin pour lèvres</option>
+              <option value="les_deux">Les deux</option>
+              <option value="autre">Autre (précisez ci‑dessous)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Type de cheveux (si applicable)</label>
+            <select id="type_cheveux">
+              <option value="indetermine">Je ne sais pas / Non concerné</option>
+              <option value="secs">Secs</option>
+              <option value="gras">Gras</option>
+              <option value="mixtes">Mixtes</option>
+              <option value="crepus">Crépus</option>
+              <option value="ondules">Ondulés / Bouclés</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Quelles qualités attendez‑vous d'un soin naturel ?</label>
+            <textarea id="qualites" placeholder="ex. hydratant, réparateur, non‑collant, odeur discrète..."></textarea>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Fréquence d'achat (estimation)</label>
+              <select id="frequence">
+                <option value="jamais">Jamais</option>
+                <option value="occasionnel">Occasionnellement</option>
+                <option value="mensuel">Mensuel</option>
+                <option value="hebdo">Plusieurs fois par mois</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Budget approximatif</label>
+              <select id="budget">
+                <option>Moins de 5 TND</option>
+                <option>5 - 15 TND</option>
+                <option>15 - 30 TND</option>
+                <option>Plus de 30 TND</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Commentaires / suggestions</label>
+            <textarea id="comments" placeholder="Vos idées pour Pepper & Glow..."></textarea>
+          </div>
+
+          <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+            <button class="cta" type="submit">Envoyer — c'est anonyme</button>
+            <button type="button" class="secondary" onclick="resetForm()">Effacer</button>
+          </div>
+
+          <div class="foot">Les réponses restent strictement anonymes — aucune adresse e‑mail ou nom n'est collecté.</div>
+        </form>
+
+      </div>
+
+      <div class="hero-right">
+        <div class="card" style="padding:12px;display:grid;gap:12px;align-items:start">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23f6fbf7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='22' fill='%23999'>Image: piment du Cap Bon / produit naturel</text></svg>" alt="Piment du Cap Bon" />
+          <div style="padding:8px">
+            <strong>À propos</strong>
+            <p style="margin:6px 0;color:var(--muted)">Nous sommes étudiantes basées à Nabeul, engagées pour des produits locaux, éthiques et naturels. Merci pour votre soutien !</p>
+            <div style="display:flex;gap:8px">
+              <button class="secondary" onclick="document.getElementById('comments').focus()">Donner une suggestion</button>
+              <button class="secondary" onclick="alert('Merci ! Votre anonymat est respecté.')">En savoir plus</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>© Pepper & Glow — Projet étudiant · Origine : Cap Bon (Nabeul)</footer>
+  </div>
+
+  <script>
+    function handleSubmit(e){
+      e.preventDefault();
+      // collect only non-identifying answers
+      const data = {
+        interet: document.getElementById('interet').value,
+        type_cheveux: document.getElementById('type_cheveux').value,
+        qualites: document.getElementById('qualites').value.trim(),
+        frequence: document.getElementById('frequence').value,
+        budget: document.getElementById('budget').value,
+        comments: document.getElementById('comments').value.trim()
+      };
+
+      console.log('Réponse anonyme:', data);
+
+      // Simuler envoi : ici vous pouvez remplacer par un appel fetch vers votre serveur
+      // Ex : fetch('/save', {method:'POST', body: JSON.stringify(data)})
+
+      // Remplacer le formulaire par un message de remerciement
+      const form = document.getElementById('survey');
+      form.innerHTML = '<div style="padding:22px;text-align:center"><h2>Merci ! 🎉</h2><p>Vos réponses ont été enregistrées de façon anonyme. Votre contribution aide Pepper & Glow à créer des produits locaux et responsables.</p></div>';
+
+      return false;
+    }
+    function resetForm(){
+      if(confirm('Effacer toutes les réponses ?')) document.getElementById('survey').reset();
+    }
+  </script>
+</body>
+</html>
